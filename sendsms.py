@@ -13,7 +13,7 @@ send_from = os.environ.get("NUMBER")
 
 def sendsms():
     scrapped_data = scrape()
-    filtered_data = scrapped_data[(scrapped_data['impact'] == 'High Impact Expected') & ((
+    filtered_data = scrapped_data[((scrapped_data['impact'] == 'High Impact Expected') | (scrapped_data['time'] == 'All Day')) & ((
         scrapped_data['currency'] == 'USD') | (
         scrapped_data['currency'] == 'EUR'))]
     return filtered_data.to_string(index=False, header=False)
