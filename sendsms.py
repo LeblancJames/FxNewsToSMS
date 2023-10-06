@@ -33,6 +33,11 @@ def email_alert(subject, body, to):
     server.quit()
 
 
+def lambda_handler():
+    data = sendsms()
+    email_alert("Good Morning! Here's todays news.", data, send_from)
+
+
 if __name__ == '__main__':
     data = sendsms()
     email_alert("Good Morning! Here's todays news.", data, send_from)
