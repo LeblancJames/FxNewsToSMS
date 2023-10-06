@@ -8,6 +8,7 @@ from email.message import EmailMessage
 load_dotenv()
 user = os.environ.get("EMAIL")
 password = os.environ.get("PASS")
+send_from = os.environ.get("NUMBER")
 
 
 def sendsms():
@@ -34,5 +35,4 @@ def email_alert(subject, body, to):
 
 if __name__ == '__main__':
     data = sendsms()
-    email_alert("Good Morning! Here's todays news.", data,
-                "9179295977@mms.cricketwireless.net")
+    email_alert("Good Morning! Here's todays news.", data, send_from)
